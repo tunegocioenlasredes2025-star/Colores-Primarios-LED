@@ -1,0 +1,629 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Colores Primarios · LED 12V y 24V en Morón · Autos, motos, náutica y hogar</title>
+<meta name="description" content="LED para auto, moto, náutica y hogar en Av. Hipólito Yrigoyen 546, Morón. 12V, 24V y 220V. ¿No sabés qué lámpara lleva tu auto? Mandanos la foto por WhatsApp y te decimos cuál es.">
+<!-- Demo para mostrarle al dueño: no se indexa hasta que la contrate. -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0b0b12">
+<link rel="icon" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<style>
+/* Paleta sacada del cartel del local: fondo negro, "LED" en blanco y los
+   celestes/violetas de las tiras LED de la marquesina. El rojo es el de las rejas. */
+:root{
+  --negro:#0b0b12; --negro-2:#14141f; --negro-3:#1e1e2c; --borde-osc:#2c2c3e;
+  --cyan:#00e2ff; --cyan-osc:#00a8bd; --violeta:#8b5cff; --rojo:#e03131;
+  --ambar:#ffb020;
+  --claro:#f6f5f8; --blanco:#fff; --tinta:#16151c; --gris:#6a6878; --linea:#e3e1e8;
+  --ok:#12874f; --wa:#25d366;
+  --tit:'Chakra Petch',system-ui,sans-serif; --txt:'Barlow',system-ui,sans-serif; --cond:'Barlow Condensed',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--negro);color:#e9e8ef;font-family:var(--txt);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+.caja{width:min(1140px,100% - 32px);margin-inline:auto}
+h1,h2,h3{font-family:var(--tit);font-weight:700;line-height:1.05;letter-spacing:-.01em}
+h2{font-size:clamp(30px,5vw,46px)}
+h3{font-size:20px}
+section{padding:76px 0}
+.rotulo{display:inline-flex;align-items:center;gap:9px;font-family:var(--cond);font-weight:700;font-size:15px;letter-spacing:.22em;text-transform:uppercase;color:var(--cyan);margin-bottom:12px}
+.rotulo::before{content:'';width:20px;height:2px;background:var(--cyan);box-shadow:0 0 10px var(--cyan)}
+.bajada{font-size:18px;max-width:600px;margin-top:14px;color:#a9a7b8}
+.bajada b{color:#fff}
+
+/* ---------- botones ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--tit);font-weight:700;font-size:16.5px;padding:14px 22px;border-radius:8px;text-decoration:none;border:2px solid transparent;cursor:pointer;line-height:1.15;text-align:center;transition:transform .14s,background .14s,box-shadow .14s}
+.btn svg{width:20px;height:20px;flex:none}
+.btn:active{transform:translateY(1px)}
+.btn-wa{background:var(--wa);color:#05290f;border-color:#12a150}
+.btn-wa:hover{background:#3ae07a}
+.btn-cyan{background:var(--cyan);color:#04252b;border-color:var(--cyan);box-shadow:0 0 24px #00e2ff4d}
+.btn-cyan:hover{background:#4aecff;box-shadow:0 0 34px #00e2ff7a}
+.btn-borde{background:transparent;color:#fff;border-color:#ffffff4d}
+.btn-borde:hover{border-color:#fff;background:#ffffff14}
+.btn-osc{background:var(--tinta);color:#fff;border-color:var(--tinta)}
+.btn-osc:hover{background:#2c2a37}
+.btn-chico{padding:10px 15px;font-size:15px}
+
+/* ---------- barra superior ---------- */
+.top{position:sticky;top:0;z-index:40;background:#0b0b12f0;backdrop-filter:blur(10px);border-bottom:1px solid var(--borde-osc)}
+.top .caja{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
+.marca{display:flex;align-items:center;gap:10px;text-decoration:none;min-width:0}
+.marca .led{width:34px;height:34px;flex:none;border-radius:8px;background:radial-gradient(circle at 50% 38%,#fff,var(--cyan) 42%,#0d5b68 78%);box-shadow:0 0 16px #00e2ff88;position:relative}
+.marca .led::after{content:'';position:absolute;left:50%;bottom:4px;width:12px;height:6px;margin-left:-6px;border-radius:2px;background:#0b0b12}
+.marca>div{min-width:0}
+.marca b{display:block;font-family:var(--tit);font-weight:700;font-size:16px;line-height:1;white-space:nowrap}
+.marca small{display:block;font-family:var(--cond);font-size:12.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* ---------- portada ---------- */
+.portada{position:relative;overflow:hidden;padding:52px 0 0;
+  background:radial-gradient(120% 90% at 50% -18%,#173444 0%,#0b0b12 62%)}
+.portada::before{content:'';position:absolute;left:50%;top:-40px;width:900px;height:360px;margin-left:-450px;
+  background:conic-gradient(from 210deg at 50% 0,transparent 0 12deg,#00e2ff1f 12deg 26deg,transparent 26deg 34deg,#8b5cff1a 34deg 48deg,transparent 48deg);filter:blur(6px)}
+.portada .caja{position:relative}
+.sello{display:inline-flex;align-items:center;gap:9px;font-size:14.5px;color:#c8c6d6;background:#ffffff0f;border:1px solid #ffffff24;padding:7px 15px 7px 8px;border-radius:999px}
+.sello b{background:var(--ambar);color:#241700;font-weight:700;font-size:12.5px;padding:3px 10px;border-radius:999px}
+.portada h1{font-size:clamp(34px,5.6vw,58px);margin:18px 0 0;max-width:820px}
+.portada h1 em{font-style:normal;color:var(--cyan);text-shadow:0 0 34px #00e2ff66}
+.portada .bajada{margin:16px 0 0}
+.estado{display:inline-flex;align-items:center;gap:9px;margin-top:20px;font-size:15px;color:#a9a7b8}
+.estado .pt{width:10px;height:10px;border-radius:50%;background:#6c6a7c;flex:none}
+.estado.abierto .pt{background:#2fd47e;animation:late 1.9s infinite}
+.estado.cerrado .pt{background:#ff6d7a}
+.estado strong{color:#fff}
+@keyframes late{0%{box-shadow:0 0 0 0 #2fd47e7d}70%{box-shadow:0 0 0 10px #2fd47e00}100%{box-shadow:0 0 0 0 #2fd47e00}}
+
+/* las dos puertas */
+.puertas{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:36px 0 0;padding-bottom:62px}
+.puerta{position:relative;border-radius:18px;padding:26px;text-decoration:none;display:flex;flex-direction:column;gap:9px;min-height:186px;overflow:hidden;transition:transform .16s,box-shadow .16s}
+.puerta:hover{transform:translateY(-3px)}
+.puerta .vv{font-family:var(--cond);font-size:14px;font-weight:700;letter-spacing:.2em;text-transform:uppercase}
+.puerta h3{font-size:27px}
+.puerta p{font-size:15.5px}
+.puerta .ir{margin-top:auto;font-family:var(--tit);font-weight:700;font-size:15.5px;display:inline-flex;align-items:center;gap:7px}
+.puerta .ir svg{width:17px;height:17px}
+.puerta.veh{background:linear-gradient(150deg,#16323f,#0f1622);border:1px solid #1f4c5e;color:#fff}
+.puerta.veh:hover{box-shadow:0 14px 40px #00e2ff2e}
+.puerta.veh .vv{color:var(--cyan)}
+.puerta.veh p{color:#a7bdc6}
+.puerta.veh::after{content:'';position:absolute;right:-60px;bottom:-70px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,#00e2ff2e,transparent 68%)}
+.puerta.casa{background:linear-gradient(150deg,#fdf6e6,#f3ead6);border:1px solid #e3d5b4;color:var(--tinta)}
+.puerta.casa:hover{box-shadow:0 14px 40px #ffb02036}
+.puerta.casa .vv{color:#96701a}
+.puerta.casa p{color:#6b6153}
+.puerta.casa::after{content:'';position:absolute;right:-60px;bottom:-70px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,#ffb02040,transparent 68%)}
+.puerta .ico{width:46px;height:46px}
+
+/* ---------- tira ---------- */
+.tira{background:var(--negro-2);border-block:1px solid var(--borde-osc)}
+.tira .caja{display:grid;grid-template-columns:repeat(4,1fr)}
+.dato{padding:20px 16px;border-right:1px solid var(--borde-osc)}
+.dato:first-child{padding-left:0}
+.dato:last-child{border-right:0}
+.dato b{display:block;font-family:var(--tit);font-size:25px;line-height:1.05;color:#fff}
+.dato b i{font-style:normal;color:var(--ambar)}
+.dato span{display:block;font-size:13.5px;color:#8a8899;margin-top:3px}
+.dato a{text-decoration:none}
+.dato a:hover b{color:var(--cyan)}
+
+/* ================= MUNDO VEHÍCULO (oscuro) ================= */
+.veh-sec{background:
+  radial-gradient(90% 60% at 50% 0,#122a36 0,transparent 62%),
+  repeating-linear-gradient(#ffffff05 0 1px,transparent 1px 44px), var(--negro)}
+.tipos{display:grid;grid-template-columns:repeat(5,1fr);gap:11px;margin-top:32px}
+.tipo{background:var(--negro-3);border:1px solid var(--borde-osc);border-radius:14px;padding:18px 14px;text-align:center;cursor:pointer;color:#e9e8ef;font-family:var(--tit);font-weight:700;font-size:16px;transition:border-color .15s,transform .15s,box-shadow .15s}
+.tipo:hover,.tipo[aria-pressed=true]{border-color:var(--cyan);transform:translateY(-2px);box-shadow:0 8px 26px #00e2ff2b}
+.tipo[aria-pressed=true]{background:#12303c}
+.tipo svg{width:32px;height:32px;margin:0 auto 9px;color:var(--cyan)}
+.tipo small{display:block;font-family:var(--txt);font-weight:500;font-size:13px;color:#8a8899;margin-top:3px}
+
+/* zócalos */
+.zocalos{margin-top:34px}
+.z-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px}
+.z{background:var(--negro-2);border:1px solid var(--borde-osc);border-radius:14px;padding:16px;cursor:pointer;text-align:left;transition:border-color .15s,transform .15s}
+.z:hover{border-color:var(--cyan);transform:translateY(-2px)}
+.z b{display:block;font-family:var(--tit);font-size:23px;color:#fff}
+.z i{display:block;font-style:normal;font-size:12.5px;color:var(--cyan);font-family:var(--cond);letter-spacing:.12em;text-transform:uppercase;margin-top:1px;min-height:16px}
+.z span{display:block;font-size:14px;color:#8a8899;margin-top:7px}
+.aviso{margin-top:22px;display:flex;gap:12px;align-items:flex-start;background:#2a1a0b;border:1px solid #6b4413;border-radius:14px;padding:16px 18px;font-size:15px;color:#e8cfa8}
+.aviso svg{width:22px;height:22px;flex:none;color:var(--ambar);margin-top:2px}
+.aviso b{color:#ffd68c}
+
+/* caja de la foto de la lámpara */
+.foto-lampara{margin-top:30px;border-radius:20px;padding:28px;background:linear-gradient(140deg,#123642,#0d1a22);border:1px solid #1f4c5e;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}
+.foto-lampara h3{font-size:25px;color:#fff}
+.foto-lampara p{color:#a7bdc6;margin-top:7px;font-size:16px;max-width:520px}
+
+/* dudas */
+.dudas{margin-top:34px;display:grid;gap:10px}
+details.duda{background:var(--negro-2);border:1px solid var(--borde-osc);border-radius:13px;overflow:hidden}
+details.duda[open]{border-color:#3c5a66}
+details.duda summary{list-style:none;cursor:pointer;padding:16px 18px;font-family:var(--tit);font-weight:700;font-size:17px;display:flex;justify-content:space-between;gap:14px;align-items:center}
+details.duda summary::-webkit-details-marker{display:none}
+details.duda summary::after{content:'+';color:var(--cyan);font-size:23px;line-height:1;flex:none}
+details.duda[open] summary::after{content:'–'}
+details.duda .cuerpo{padding:0 18px 18px;color:#a9a7b8;font-size:16px}
+details.duda .cuerpo b{color:#fff}
+
+/* ================= MUNDO HOGAR (claro) ================= */
+.casa-sec{background:var(--claro);color:var(--tinta)}
+.casa-sec h2,.casa-sec h3{color:var(--tinta)}
+.casa-sec .rotulo{color:#96701a}
+.casa-sec .rotulo::before{background:var(--ambar);box-shadow:none}
+.casa-sec .bajada{color:var(--gris)}
+.casa-sec .bajada b{color:var(--tinta)}
+.tonos{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:32px}
+.tono{border-radius:18px;overflow:hidden;border:1px solid var(--linea);background:var(--blanco);text-align:left;cursor:pointer;transition:transform .15s,box-shadow .15s}
+.tono:hover{transform:translateY(-3px);box-shadow:0 12px 30px #00000014}
+.tono .muestra{height:92px;display:flex;align-items:flex-end;padding:12px 16px;font-family:var(--cond);font-size:16px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#3a3226}
+.tono.calida .muestra{background:linear-gradient(160deg,#ffd9a0,#ffb45c)}
+.tono.neutra .muestra{background:linear-gradient(160deg,#fff6e3,#f4efe2);color:#4a4335}
+.tono.fria .muestra{background:linear-gradient(160deg,#e8f4ff,#cfe4f7);color:#2b3c4a}
+.tono .cuerpo{padding:17px 16px 19px}
+.tono b{display:block;font-family:var(--tit);font-size:19px}
+.tono p{color:var(--gris);font-size:15px;margin-top:5px}
+.casa-grilla{display:grid;grid-template-columns:repeat(4,1fr);gap:11px;margin-top:26px}
+.casa-item{background:var(--blanco);border:1px solid var(--linea);border-radius:13px;padding:14px 15px;font-weight:600;font-size:15.5px;cursor:pointer;text-align:left;display:flex;align-items:center;gap:10px;transition:border-color .14s,transform .14s}
+.casa-item:hover{border-color:var(--ambar);transform:translateY(-2px)}
+.casa-item .p{flex:none;width:9px;height:9px;border-radius:50%;background:var(--ambar)}
+.casa-nota{margin-top:20px;font-size:14.5px;color:var(--gris)}
+.casa-foto{margin-top:34px;border-radius:18px;overflow:hidden;border:1px solid var(--linea)}
+.casa-foto img{width:100%;aspect-ratio:16/8;object-fit:cover}
+.casa-foto figcaption{padding:13px 16px;font-size:14px;color:var(--gris);background:var(--blanco)}
+
+/* ---------- opiniones ---------- */
+.ops .cab{display:flex;justify-content:space-between;align-items:flex-end;gap:22px;flex-wrap:wrap}
+.estrellas{display:flex;align-items:center;gap:10px;margin-top:6px}
+.estrellas svg{width:22px;height:22px;color:var(--ambar)}
+.estrellas b{font-family:var(--tit);font-size:30px;color:#fff}
+.estrellas span{color:#8a8899;font-size:15px}
+.resenas{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
+.res{background:var(--negro-2);border:1px solid var(--borde-osc);border-radius:16px;padding:20px;border-left:3px solid var(--cyan)}
+.res p{font-size:16.5px;color:#dedce8}
+.res cite{display:block;font-style:normal;font-size:13.5px;color:#8a8899;margin-top:11px;font-weight:600}
+
+/* ---------- local ---------- */
+.local{background:var(--negro-2);border-top:1px solid var(--borde-osc)}
+.local .caja{display:grid;grid-template-columns:.85fr 1.15fr;gap:40px;align-items:stretch}
+.frente{border-radius:16px;overflow:hidden;border:1px solid var(--borde-osc);margin-top:22px}
+.frente img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.frente figcaption{padding:12px 15px;font-size:14px;color:#8a8899;background:var(--negro-3)}
+.horario{margin-top:20px;border:1px solid var(--borde-osc);border-radius:14px;overflow:hidden}
+.horario div{display:flex;justify-content:space-between;gap:12px;padding:11px 16px;border-bottom:1px solid var(--borde-osc);font-size:15.5px}
+.horario div:last-child{border-bottom:0}
+.horario dt{font-weight:600;color:#dedce8}
+.horario dd{text-align:right;color:#8a8899}
+.horario .hoy{background:#12303c}
+.horario .hoy dt::after{content:'hoy';margin-left:8px;font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--cyan);color:#04252b;padding:2px 7px;border-radius:999px;vertical-align:2px}
+.horario .hoy dd{color:#fff;font-weight:700}
+.contacto{display:grid;gap:13px;margin-top:20px}
+.contacto a,.contacto p{display:flex;gap:12px;align-items:flex-start;text-decoration:none;font-size:16px}
+.contacto svg{width:21px;height:21px;flex:none;color:var(--cyan);margin-top:2px}
+.contacto small{display:block;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#8a8899}
+.contacto a:hover b{text-decoration:underline}
+.mapa{border-radius:16px;overflow:hidden;border:1px solid var(--borde-osc);min-height:400px;display:flex;flex-direction:column;background:var(--negro-3)}
+.mapa iframe{width:100%;flex:1;min-height:360px;border:0;display:block;filter:invert(.92) hue-rotate(180deg) saturate(.7)}
+.mapa-pie{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:13px 15px;background:var(--negro-3);flex-wrap:wrap;font-size:14px;color:#8a8899}
+
+/* ---------- cierre ---------- */
+.cierre{text-align:center;position:relative;overflow:hidden;
+  background:radial-gradient(90% 120% at 50% 0,#173444,#0b0b12 68%)}
+.cierre::before{content:'';position:absolute;left:50%;top:-10%;width:760px;height:300px;margin-left:-380px;
+  background:conic-gradient(from 215deg at 50% 0,transparent 0 14deg,#00e2ff26 14deg 30deg,transparent 30deg);filter:blur(8px)}
+.cierre .caja{position:relative}
+.cierre h2{max-width:800px;margin:0 auto;font-size:clamp(29px,5.2vw,50px)}
+.cierre h2 em{font-style:normal;color:var(--cyan)}
+.cierre p{font-size:18px;max-width:560px;margin:15px auto 28px;color:#a9a7b8}
+.botones{display:flex;flex-wrap:wrap;gap:12px}
+.cierre .botones{justify-content:center}
+footer{background:var(--negro);color:#7d7b8c;font-size:14px;padding:26px 0 28px;border-top:1px solid var(--borde-osc)}
+footer .caja{display:flex;justify-content:space-between;gap:12px 24px;flex-wrap:wrap}
+
+/* ---------- barra fija del celular ---------- */
+.barra{position:fixed;left:0;right:0;bottom:0;z-index:50;display:none;grid-template-columns:1fr 1.5fr;gap:8px;padding:9px 12px calc(9px + env(safe-area-inset-bottom));background:#0b0b12f2;backdrop-filter:blur(10px);border-top:2px solid var(--cyan)}
+.barra .btn{padding:13px 8px;font-size:15.5px;box-shadow:none}
+
+@media (max-width:980px){
+  .tipos{grid-template-columns:repeat(3,1fr)}
+  .z-grid,.casa-grilla{grid-template-columns:repeat(3,1fr)}
+  .local .caja{grid-template-columns:1fr}
+  .foto-lampara{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+  body{font-size:16px;padding-bottom:82px}
+  section{padding:54px 0}
+  .top .caja{height:58px}
+  .portada{padding:32px 0 0}
+  .puertas{grid-template-columns:1fr;padding-bottom:48px;gap:12px}
+  .puerta{min-height:0;padding:22px}
+  .tira .caja{grid-template-columns:1fr 1fr}
+  .dato{padding:16px 13px;border-bottom:1px solid var(--borde-osc)}
+  .dato:nth-child(odd){padding-left:0}
+  .dato:nth-child(2n){border-right:0}
+  .dato:nth-child(n+3){border-bottom:0}
+  .dato b{font-size:22px}
+  .tipos,.z-grid,.casa-grilla{grid-template-columns:1fr 1fr}
+  .tonos,.resenas{grid-template-columns:1fr}
+  .botones .btn{flex:1 1 100%}
+  .barra{display:grid}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="caja">
+    <a class="marca" href="#arriba">
+      <span class="led" aria-hidden="true"></span>
+      <div><b>Colores Primarios</b><small>LED · 12V y 24V</small></div>
+    </a>
+    <a class="btn btn-wa btn-chico js-wa-top" href="#" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4c-1-1.6-1.5-3.4-1.5-5.2C2.2 6.6 6.6 2.2 12 2.2c2.6 0 5.1 1 6.9 2.9 1.8 1.8 2.9 4.3 2.9 6.9 0 5.4-4.4 9.8-9.8 9.8zM20.5 3.5C18.2 1.2 15.2 0 12 0 5.4 0 .1 5.3.1 11.9c0 2.1.6 4.2 1.6 6L0 24l6.3-1.6c1.8 1 3.8 1.5 5.7 1.5 6.6 0 11.9-5.3 11.9-11.9 0-3.2-1.2-6.2-3.4-8.5z"/></svg>
+      WhatsApp
+    </a>
+  </div>
+</header>
+
+<main id="arriba">
+
+<!-- ============ PORTADA ============ -->
+<section class="portada">
+  <div class="caja">
+    <span class="sello"><b>4,5 ★</b> 44 opiniones en Google</span>
+    <h1>Traé la lámpara vieja. <em>Te decimos cuál es.</em></h1>
+    <p class="bajada">LED para <b>auto, moto, náutica y hogar</b> en Av. Hipólito Yrigoyen 546, Morón. 12V, 24V y 220V, en el mismo mostrador. Si no sabés cuál lleva, sacale una foto y mandala.</p>
+    <p class="estado" id="estado" aria-live="polite"><span class="pt"></span><span id="estado-txt">Lunes a viernes de 8 a 17 · sábados de 8 a 13:30</span></p>
+
+    <div class="puertas">
+      <a class="puerta veh" href="#vehiculo">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13.5 4.8 8a2 2 0 0 1 1.9-1.4h10.6A2 2 0 0 1 19.2 8L21 13.5"/><path d="M3 13.5h18V18a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-1H7v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M6.5 16h1M16.5 16h1"/></svg>
+        <span class="vv">12V y 24V</span>
+        <h3>Para tu vehículo</h3>
+        <p>Auto, moto, camión y náutica. Luz baja, alta, antiniebla, barras y auxiliares.</p>
+        <span class="ir">Ver lo de vehículo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="puerta casa" href="#hogar">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#c98d13" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.4.3.5.7.5 1.1v1h6v-1c0-.4.2-.8.5-1.1A6 6 0 0 0 12 3z"/></svg>
+        <span class="vv">220V</span>
+        <h3>Para tu casa</h3>
+        <p>Lamparitas, dicroicas, tiras, plafones y accesorios. Luz cálida, neutra o fría.</p>
+        <span class="ir">Ver lo de casa <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TIRA ============ -->
+<div class="tira">
+  <div class="caja">
+    <div class="dato"><a href="https://www.google.com/maps/search/?api=1&query=Colores+Primarios+Iluminaci%C3%B3n+Led+Av.+Hip%C3%B3lito+Yrigoyen+546+Mor%C3%B3n" target="_blank" rel="noopener"><b>4,5 <i>★</i></b><span>44 opiniones en Google</span></a></div>
+    <div class="dato"><b>12V · 24V · 220V</b><span>vehículo y hogar</span></div>
+    <div class="dato"><b>8 a 17</b><span>lunes a viernes · sábado 8 a 13:30</span></div>
+    <div class="dato"><b>Yrigoyen 546</b><span>Morón · Zona Oeste</span></div>
+  </div>
+</div>
+
+<!-- ============ MUNDO VEHÍCULO ============ -->
+<section class="veh-sec" id="vehiculo">
+  <div class="caja">
+    <span class="rotulo">Para tu vehículo · 12V y 24V</span>
+    <h2>Lo que va en el auto,<br>la moto y la lancha</h2>
+    <p class="bajada">Tocá para qué es y te armamos la consulta. Si no sabés qué lámpara lleva, no importa: abajo te mostramos cómo darte cuenta.</p>
+
+    <div class="tipos" role="group" aria-label="Para qué vehículo es">
+      <button class="tipo" data-veh="auto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13.5 4.8 8a2 2 0 0 1 1.9-1.4h10.6A2 2 0 0 1 19.2 8L21 13.5"/><path d="M3 13.5h18V18a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-1H7v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/></svg>Auto<small>12V</small></button>
+      <button class="tipo" data-veh="moto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="17" r="3.2"/><circle cx="19" cy="17" r="3.2"/><path d="M8.2 17h4.3l3-6M12 8h3.5l1.6 3.3M6.5 11h4"/></svg>Moto<small>12V</small></button>
+      <button class="tipo" data-veh="camion"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h11v11H2zM13 9h4.5l3.5 3.5V17h-8z"/><circle cx="6.5" cy="18.5" r="1.8"/><circle cx="17.5" cy="18.5" r="1.8"/></svg>Camión<small>24V</small></button>
+      <button class="tipo" data-veh="nautica"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17.5c1.6 1.4 3.2 1.4 4.8 0 1.6 1.4 3.2 1.4 4.8 0 1.6 1.4 3.2 1.4 4.8 0"/><path d="M4.5 14 12 4l7.5 10z"/><path d="M12 4v10"/></svg>Náutica<small>IP67 / IP68</small></button>
+      <button class="tipo" data-veh="4x4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15h18M4 15V9.5h16V15"/><path d="M6 9.5 7.5 5h9L18 9.5"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>4x4 / Off road<small>barras</small></button>
+    </div>
+
+    <!-- zócalos -->
+    <div class="zocalos">
+      <h3 style="font-size:24px;margin-bottom:4px">¿Cuál lleva tu auto? Mirá la que sacaste</h3>
+      <p style="color:#a9a7b8;font-size:16px">Estas son las más comunes. Compará la que tenés en la mano y tocá la que se parece.</p>
+      <div class="z-grid">
+        <button class="z" data-zocalo="H4"><b>H4</b><i>= 9003 · HB2</i><span>Dos filamentos en una: alta y baja. El clásico de autos viejos y motos.</span></button>
+        <button class="z" data-zocalo="H7"><b>H7</b><i>&nbsp;</i><span>Un solo filamento. Luz baja o alta según el auto.</span></button>
+        <button class="z" data-zocalo="H1"><b>H1</b><i>&nbsp;</i><span>Un filamento. Va en alta, baja o antiniebla.</span></button>
+        <button class="z" data-zocalo="H3"><b>H3</b><i>&nbsp;</i><span>Antinieblas y faros auxiliares.</span></button>
+        <button class="z" data-zocalo="H11"><b>H11</b><i>base de H8 y H9</i><span>Muy común en autos modernos: baja y antiniebla.</span></button>
+        <button class="z" data-zocalo="HB3 (9005)"><b>HB3</b><i>= 9005</i><span>Luz alta.</span></button>
+        <button class="z" data-zocalo="HB4 (9006)"><b>HB4</b><i>= 9006</i><span>Baja y antiniebla. Autos de fines de los 90 en adelante.</span></button>
+        <button class="z" data-zocalo="No sé cuál es"><b>No sé</b><i>mandá la foto</i><span>Sacale una foto a la lámpara y te decimos cuál es.</span></button>
+      </div>
+      <div class="aviso">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 9v5M12 17.5v.5"/><path d="M10.3 3.9 2.4 17.4A2 2 0 0 0 4.1 20.5h15.8a2 2 0 0 0 1.7-3.1L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>
+        <span><b>Que los códigos se parezcan no quiere decir que entren.</b> Cada zócalo tiene su base, su ficha y su conexión propia. Si tenés dudas, traé la vieja o mandanos la foto: es gratis y te ahorra el viaje de vuelta.</span>
+      </div>
+    </div>
+
+    <!-- foto de la lámpara -->
+    <div class="foto-lampara">
+      <div>
+        <h3>Sacale una foto y mandala</h3>
+        <p>Es lo que hacemos todos los días en el mostrador. Mandanos la foto de la lámpara que sacaste (o del faro abierto) y te decimos cuál es y si la tenemos.</p>
+      </div>
+      <a class="btn btn-cyan js-wa-foto" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        Mandar la foto
+      </a>
+    </div>
+
+    <!-- dudas -->
+    <div class="dudas">
+      <h3 style="font-size:24px;margin:14px 0 4px">Lo que todo el mundo pregunta</h3>
+      <details class="duda">
+        <summary>¿12V o 24V? ¿Cuál lleva lo mío?</summary>
+        <div class="cuerpo"><b>12V</b> es lo de autos, camionetas y motos. <b>24V</b> es lo de camiones pesados, colectivos y maquinaria. Muchos productos vienen marcados <b>12/24V</b> y sirven para los dos. Ojo: enchufar una luz de 12V en 24V la quema. Por eso lo primero que te vamos a preguntar es para qué vehículo es.</div>
+      </details>
+      <details class="duda">
+        <summary>¿Me va a prender el testigo de lámpara quemada?</summary>
+        <div class="cuerpo">Puede pasar. El LED consume mucho menos que la halógena y la computadora de algunos autos lo lee como si la lámpara estuviera cortada: prende el testigo en el tablero o el faro parpadea. Se soluciona con un <b>decodificador (CANbus) o una resistencia</b>. Consultanos si tu auto lo necesita antes de comprar.</div>
+      </details>
+      <details class="duda">
+        <summary>¿Va a entrar en el faro?</summary>
+        <div class="cuerpo">Es la pregunta que más devoluciones evita. El LED trae un disipador o un cooler atrás y en algunos faros <b>no entra la tapa</b>. Contanos qué auto es y lo vemos antes, no después.</div>
+      </details>
+      <details class="duda">
+        <summary>¿Es legal? ¿Me para la policía?</summary>
+        <div class="cuerpo">La Ley Nacional de Tránsito 24.449 pide que los faros de adelante sean de <b>luz blanca o amarilla</b>, que no encandilen y que no tapen la patente. Nada de colores adelante ni luces abajo del auto o en las ruedas. Las <b>barras LED y los auxiliares son de uso off-road</b>: en la calle van apagados.</div>
+      </details>
+      <details class="duda">
+        <summary>Es para la lancha o para la moto. ¿Aguanta el agua?</summary>
+        <div class="cuerpo">Eso lo dice el grado <b>IP</b>. <b>IP65</b> aguanta salpicaduras y chorros suaves. <b>IP67</b> aguanta estar sumergido un rato (1 metro, 30 minutos): es lo que va en moto, exterior de auto y cubierta de lancha. Lo que va <b>abajo de la línea de flotación necesita IP68</b>, nada menos. Decinos dónde lo vas a poner y te decimos cuál te sirve.</div>
+      </details>
+      <details class="duda">
+        <summary>Quiero una barra LED. ¿Cómo la conecto?</summary>
+        <div class="cuerpo">Las barras grandes consumen bastante y no conviene colgarlas de un circuito original: van con <b>relé y fusible</b>. Contanos qué barra querés y para qué vehículo, y te decimos qué necesitás además de la barra.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MUNDO HOGAR ============ -->
+<section class="casa-sec" id="hogar">
+  <div class="caja">
+    <span class="rotulo">Para tu casa · 220V</span>
+    <h2>Luz cálida, neutra o fría.<br>Acá las tenés prendidas.</h2>
+    <p class="bajada">La diferencia no se entiende leyendo: se entiende mirándolas una al lado de la otra. Eso lo podés hacer en el local. Mientras tanto, esto es lo que cambia.</p>
+
+    <div class="tonos">
+      <button class="tono calida" data-tono="luz cálida (2700K a 3000K)">
+        <span class="muestra">2700K – 3000K</span>
+        <span class="cuerpo"><b>Cálida</b><p>Amarilla, como la lamparita de siempre. Para living, dormitorio y comedor: descansa la vista.</p></span>
+      </button>
+      <button class="tono neutra" data-tono="luz neutra (3000K a 4000K)">
+        <span class="muestra">3000K – 4000K</span>
+        <span class="cuerpo"><b>Neutra</b><p>Blanca sin irse al azul. Para cocina, baño y escritorio: ves bien sin que quede frío.</p></span>
+      </button>
+      <button class="tono fria" data-tono="luz fría (4000K a 5000K+)">
+        <span class="muestra">4000K – 5000K+</span>
+        <span class="cuerpo"><b>Fría</b><p>Blanco azulado, despierta. Para garage, taller, lavadero y exterior.</p></span>
+      </button>
+    </div>
+
+    <h3 style="font-size:22px;margin:38px 0 0">Qué tenemos para la casa</h3>
+    <div class="casa-grilla">
+      <button class="casa-item" data-casa="Lamparitas LED"><span class="p"></span>Lamparitas LED</button>
+      <button class="casa-item" data-casa="Dicroicas"><span class="p"></span>Dicroicas</button>
+      <button class="casa-item" data-casa="Tiras LED"><span class="p"></span>Tiras LED</button>
+      <button class="casa-item" data-casa="Hilo neón"><span class="p"></span>Hilo neón</button>
+      <button class="casa-item" data-casa="Plafones"><span class="p"></span>Plafones</button>
+      <button class="casa-item" data-casa="Lámparas de filamento"><span class="p"></span>Filamento vintage</button>
+      <button class="casa-item" data-casa="Dimmers"><span class="p"></span>Dimmers</button>
+      <button class="casa-item" data-casa=""><span class="p"></span>Otra cosa</button>
+    </div>
+    <p class="casa-nota">Tocá lo que buscás y se arma la consulta. Medidas, potencias y stock los confirmamos por WhatsApp: el surtido cambia.</p>
+
+    <figure class="casa-foto">
+      <img src="img/local.jpg" alt="Estantería del local de Colores Primarios con lámparas LED, barras de luz para vehículos y accesorios" loading="lazy" width="1200" height="600">
+      <figcaption>Una pared del local. Lo de vehículo y lo de casa, en el mismo mostrador.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ OPINIONES ============ -->
+<section class="ops">
+  <div class="caja">
+    <div class="cab">
+      <div>
+        <span class="rotulo">Lo que dicen en Google</span>
+        <h2>4,5 estrellas,<br>44 opiniones</h2>
+        <div class="estrellas">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg>
+          <b>4,5</b><span>sobre 44 opiniones</span>
+        </div>
+      </div>
+      <a class="btn btn-borde btn-chico" href="https://www.google.com/maps/search/?api=1&query=Colores+Primarios+Iluminaci%C3%B3n+Led+Av.+Hip%C3%B3lito+Yrigoyen+546+Mor%C3%B3n" target="_blank" rel="noopener">Ver la ficha en Google</a>
+    </div>
+    <div class="resenas">
+      <blockquote class="res"><p>“Genial. Tiene de todo y te atienden de 10…”</p><cite>Gabriel · Local Guide en Google</cite></blockquote>
+      <blockquote class="res"><p>“Excelente y destacable atención!”</p><cite>Juan Manuel Armendáriz · en Google</cite></blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EL LOCAL ============ -->
+<section class="local" id="donde">
+  <div class="caja">
+    <div>
+      <span class="rotulo">Dónde estamos</span>
+      <h2>Av. H. Yrigoyen 546,<br>Morón</h2>
+      <figure class="frente">
+        <img src="img/fachada.jpg" alt="Frente del local de Colores Primarios en Av. Hipólito Yrigoyen 546, Morón, con el cartel negro de LED para autos, motos, náutica y hogar" loading="lazy" width="830" height="460">
+        <figcaption>Buscá el cartel negro de LED, sobre Yrigoyen.</figcaption>
+      </figure>
+      <dl class="horario" id="horario">
+        <div data-d="1"><dt>Lunes</dt><dd>8 a 17</dd></div>
+        <div data-d="2"><dt>Martes</dt><dd>8 a 17</dd></div>
+        <div data-d="3"><dt>Miércoles</dt><dd>8 a 17</dd></div>
+        <div data-d="4"><dt>Jueves</dt><dd>8 a 17</dd></div>
+        <div data-d="5"><dt>Viernes</dt><dd>8 a 17</dd></div>
+        <div data-d="6"><dt>Sábado</dt><dd>8 a 13:30</dd></div>
+        <div data-d="0"><dt>Domingo</dt><dd>Cerrado</dd></div>
+      </dl>
+      <div class="contacto">
+        <a href="tel:+541154336103">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+          <span><small>Teléfono</small><b>011 5433-6103</b></span>
+        </a>
+        <a class="js-wa-contacto" href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg>
+          <span><small>WhatsApp</small><b>11 5433-6103</b></span>
+        </a>
+        <p>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.1 7-12a7 7 0 1 0-14 0c0 5.9 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <span><small>Dirección</small><b>Av. Hipólito Yrigoyen 546</b><br>Morón, Buenos Aires (B1708)</span>
+        </p>
+      </div>
+    </div>
+    <div class="mapa">
+      <iframe title="Mapa de Colores Primarios Iluminación LED" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps?q=Colores+Primarios+Iluminaci%C3%B3n+Led,+Av.+Hip%C3%B3lito+Yrigoyen+546,+Mor%C3%B3n,+Buenos+Aires&output=embed"></iframe>
+      <div class="mapa-pie">
+        <span>Av. Hipólito Yrigoyen 546, Morón</span>
+        <a class="btn btn-cyan btn-chico" href="https://www.google.com/maps/dir/?api=1&destination=Av.+Hip%C3%B3lito+Yrigoyen+546,+Mor%C3%B3n,+Buenos+Aires" target="_blank" rel="noopener">Cómo llegar</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CIERRE ============ -->
+<section class="cierre">
+  <div class="caja">
+    <h2>No compres a ciegas. <em>Mandanos la foto.</em></h2>
+    <p>Te decimos qué lámpara es, si la tenemos y qué te conviene. Y si querés verla prendida, te esperamos en Yrigoyen 546.</p>
+    <div class="botones">
+      <a class="btn btn-cyan js-wa-foto" href="#" target="_blank" rel="noopener">Mandar foto de la lámpara</a>
+      <a class="btn btn-borde" href="#donde">Cómo llegar al local</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="caja">
+    <span>Colores Primarios Iluminación LED · Av. Hipólito Yrigoyen 546, Morón · 011 5433-6103</span>
+    <span>LED · Autos · Motos · Náutica · Hogar · 12V y 24V</span>
+  </div>
+</footer>
+
+<div class="barra">
+  <a class="btn btn-borde" href="tel:+541154336103">Llamar</a>
+  <a class="btn btn-wa js-wa-foto" href="#" target="_blank" rel="noopener">Mandar foto de la lámpara</a>
+</div>
+
+<script>
+(function(){
+  'use strict';
+  var WA = '5491154336103'; // mismo número del cartel: confirmar que tiene WhatsApp
+  function wa(t){ return 'https://wa.me/' + WA + '?text=' + encodeURIComponent(t); }
+  function abrir(t){ window.open(wa(t), '_blank'); }
+
+  var TEXTOS = {
+    '.js-wa-top': 'Hola Colores Primarios! Te escribo desde la web. Quería hacerles una consulta.',
+    '.js-wa-foto': 'Hola Colores Primarios! Te escribo desde la web. Te mando la foto de la lámpara que saqué para que me digan cuál es. (La adjunto acá abajo)',
+    '.js-wa-contacto': 'Hola Colores Primarios! Te escribo desde la web.'
+  };
+  Object.keys(TEXTOS).forEach(function(sel){
+    document.querySelectorAll(sel).forEach(function(a){ a.href = wa(TEXTOS[sel]); });
+  });
+
+  /* ---------- abierto / cerrado, con la hora de Argentina ---------- */
+  // Horario de la ficha de Google (confirmar con el dueño). Minutos desde las 00:00.
+  var H = {0:[], 1:[[480,1020]], 2:[[480,1020]], 3:[[480,1020]], 4:[[480,1020]], 5:[[480,1020]], 6:[[480,810]]};
+  var DIAS = ['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
+  function hhmm(m){ var h = Math.floor(m/60), mm = m%60; return h + (mm ? ':' + (mm<10?'0':'') + mm : ''); }
+  function ahoraAR(){
+    var p = {};
+    try {
+      new Intl.DateTimeFormat('en-CA',{timeZone:'America/Argentina/Buenos_Aires',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hourCycle:'h23'})
+        .formatToParts(new Date()).forEach(function(x){ p[x.type] = x.value; });
+      return {dia:new Date(Date.UTC(+p.year,+p.month-1,+p.day)).getUTCDay(), min:(+p.hour%24)*60 + (+p.minute)};
+    } catch(e){ var d = new Date(); return {dia:d.getDay(), min:d.getHours()*60+d.getMinutes()}; }
+  }
+  (function(){
+    var a = ahoraAR();
+    var fila = document.querySelector('#horario [data-d="'+a.dia+'"]');
+    if (fila) fila.classList.add('hoy');
+    var el = document.getElementById('estado'), txt = document.getElementById('estado-txt');
+    var tramos = H[a.dia] || [], abierto = null;
+    tramos.forEach(function(t){ if (a.min >= t[0] && a.min < t[1]) abierto = t; });
+    if (abierto){
+      el.classList.add('abierto');
+      var faltan = abierto[1] - a.min;
+      txt.innerHTML = '<strong>Abierto ahora</strong> · ' + (faltan <= 45 ? 'cierra en ' + faltan + ' min' : 'hasta las ' + hhmm(abierto[1]));
+      return;
+    }
+    el.classList.add('cerrado');
+    for (var i = 0; i < tramos.length; i++){
+      if (tramos[i][0] > a.min){ txt.innerHTML = '<strong>Cerrado</strong> · abre hoy a las ' + hhmm(tramos[i][0]) + '. Escribinos igual.'; return; }
+    }
+    for (var k = 1; k <= 7; k++){
+      var dd = (a.dia + k) % 7;
+      if (H[dd] && H[dd].length){
+        txt.innerHTML = '<strong>Cerrado</strong> · abre ' + (k === 1 ? 'mañana' : 'el ' + DIAS[dd]) + ' a las ' + hhmm(H[dd][0][0]) + '. Escribinos igual.';
+        return;
+      }
+    }
+  })();
+
+  /* ---------- selector de vehículo ---------- */
+  var VEH = {
+    auto:    {nombre:'mi auto',    volt:'12V'},
+    moto:    {nombre:'mi moto',    volt:'12V'},
+    camion:  {nombre:'mi camión',  volt:'24V'},
+    nautica: {nombre:'la lancha',  volt:'12V'},
+    '4x4':   {nombre:'mi 4x4',     volt:'12V'}
+  };
+  var elegido = null;
+  document.querySelectorAll('.tipo').forEach(function(b){
+    b.setAttribute('aria-pressed','false');
+    b.addEventListener('click', function(){
+      document.querySelectorAll('.tipo').forEach(function(o){ o.setAttribute('aria-pressed','false'); });
+      b.setAttribute('aria-pressed','true');
+      elegido = b.dataset.veh;
+      abrir('Hola Colores Primarios! Te escribo desde la web. Es para ' + VEH[elegido].nombre + ' (' + VEH[elegido].volt + '). Quería consultar por…');
+    });
+  });
+
+  /* ---------- zócalos ---------- */
+  document.querySelectorAll('.z').forEach(function(b){
+    b.addEventListener('click', function(){
+      var z = b.dataset.zocalo;
+      var para = elegido ? ' Es para ' + VEH[elegido].nombre + '.' : '';
+      if (z === 'No sé cuál es'){
+        abrir('Hola Colores Primarios! Te escribo desde la web. No sé qué lámpara lleva mi vehículo: te mando la foto de la que saqué.' + para + ' (La adjunto acá abajo)');
+      } else {
+        abrir('Hola Colores Primarios! Te escribo desde la web. Estoy buscando una lámpara ' + z + ' en LED.' + para + ' ¿La tienen?');
+      }
+    });
+  });
+
+  /* ---------- hogar ---------- */
+  document.querySelectorAll('.tono').forEach(function(b){
+    b.addEventListener('click', function(){
+      abrir('Hola Colores Primarios! Te escribo desde la web. Quería consultar por iluminación para casa en ' + b.dataset.tono + '.');
+    });
+  });
+  document.querySelectorAll('.casa-item').forEach(function(b){
+    b.addEventListener('click', function(){
+      var q = b.dataset.casa;
+      abrir('Hola Colores Primarios! Te escribo desde la web. Quería consultar por ' + (q ? q.toLowerCase() : 'algo de iluminación') + ' para casa.');
+    });
+  });
+})();
+</script>
+</body>
+</html>
